@@ -3,405 +3,610 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutorial COBOL - Professional Guide</title>
+    <title>
+      Achmad Amin_Eka Reefal Dzakwan_Muhammad Farrel Septia Putr - Algoritma &
+      Pemrograman 3
+    </title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="bg-animation">
-      <div class="bg-circle"></div>
-      <div class="bg-circle"></div>
-      <div class="bg-circle"></div>
+    <div class="header-controls">
+      <button
+        class="theme-toggle"
+        onclick="toggleTheme()"
+        title="Toggle Dark Mode"
+      >
+        🌙
+      </button>
+      <button
+        class="print-btn"
+        onclick="window.print()"
+        title="Print / Export as PDF"
+      >
+        🖨️
+      </button>
     </div>
 
     <header>
-      <nav>
-        <div class="logo">
-          <span>💻</span>
-          <span>COBOL Tutorial</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#troubleshooting">Troubleshooting</a></li>
-        </ul>
-      </nav>
+      <h1>📚 Laporan Dokumentasi COBOL</h1>
+      <p class="subtitle">
+        Mata Kuliah: Algoritma & Pemrograman 3 | Environment Setup dengan
+        GnuCOBOL & VS Code
+      </p>
     </header>
 
+    <nav class="toc">
+      <h3>📖 Daftar Isi</h3>
+      <ul>
+        <li><a href="#info">Informasi Penulis</a></li>
+        <li><a href="#pendahuluan">1. Pendahuluan</a></li>
+        <li><a href="#software">2. Software yang Digunakan</a></li>
+        <li><a href="#instalasi">3. Proses Instalasi</a></li>
+        <li><a href="#konfigurasi">4. Konfigurasi VS Code</a></li>
+        <li><a href="#program">5. Program COBOL</a></li>
+        <li><a href="#error-solusi">6. Error & Solusi</a></li>
+        <li><a href="#vscode-run">7. Cara Menjalankan di VS Code</a></li>
+        <li><a href="#kesimpulan">8. Kesimpulan</a></li>
+      </ul>
+    </nav>
+
     <main>
-      <section class="hero">
-        <h1>📝 Tutorial Lengkap: Instalasi COBOL di Windows</h1>
-        <p>
-          Panduan lengkap menginstall GnuCOBOL menggunakan MSYS2 MINGW64 dan
-          integrasi dengan VS Code
-        </p>
-        <button class="print-btn" onclick="saveToPDF()">
-          <span>🖨️</span>
-          <span>Save as PDF</span>
-        </button>
+      <!-- INFO HEADER -->
+      <section class="info-header" id="info">
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-label">Mata Kuliah:</span>
+            <span class="info-value">Algoritma & Pemrograman 3</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Nama Penulis:</span>
+            <span class="info-value">Achmad Amin</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">NPM:</span>
+            <span class="info-value">60424014</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Kelompok:</span>
+            <span class="info-value">
+              <div>Eka Reefal Dzakwan</div>
+              <div>Muhammad Farrel Septia Putra</div>
+            </span>
+          </div>
+        </div>
       </section>
 
-      <div class="container">
-        <article class="card toc">
-          <h2>📚 Daftar Isi</h2>
-          <ul>
-            <li><a href="#tujuan">🎯 Tujuan</a></li>
-            <li><a href="#langkah1">🔧 Instalasi MSYS2 & Update Package</a></li>
-            <li><a href="#langkah2">🔧 Instalasi Compiler COBOL</a></li>
-            <li><a href="#langkah3">🔧 Konfigurasi Environment</a></li>
-            <li><a href="#langkah4">🔧 Uji Coba Program</a></li>
-            <li><a href="#langkah5">🔧 Integrasi VS Code</a></li>
-            <li><a href="#langkah6">🔧 Program Contoh</a></li>
-            <li><a href="#menjalankan">🚀 Cara Menjalankan</a></li>
-            <li><a href="#hasil">✅ Hasil yang Diharapkan</a></li>
-            <li><a href="#troubleshooting">🐛 Troubleshooting</a></li>
-          </ul>
-        </article>
-
-        <article class="card" id="tujuan">
-          <div class="info-box info-box-goal">
-            <div class="info-icon">🎯</div>
-            <div>
-              <h3>Tujuan Pembelajaran</h3>
-              <ul>
-                <li>Menginstall compiler GnuCOBOL melalui MSYS2 MINGW64</li>
-                <li>Konfigurasi environment COBOL yang berfungsi penuh</li>
-                <li>Integrasi dengan VS Code untuk compile dan run otomatis</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" id="langkah1">
-          <h2>🔧 Langkah 1: Instalasi MSYS2 & Update Package</h2>
-          <ol>
-            <li>
-              <strong>Download MSYS2</strong> dari situs resmi:
-              <a href="https://www.msys2.org/" style="color: var(--primary)"
-                >https://www.msys2.org/</a
-              >
-            </li>
-            <li>
-              <strong>Install</strong> dengan lokasi default (<code
-                style="
-                  background: rgba(99, 102, 241, 0.2);
-                  padding: 0.25rem 0.5rem;
-                  border-radius: 4px;
-                "
-                >C:\msys64</code
-              >)
-            </li>
-            <li><strong>Buka MSYS2 MinGW 64-bit</strong> (bukan MSYS biasa)</li>
-            <li><strong>Update package system:</strong></li>
-          </ol>
-
-          <pre><code>pacman -Syu</code></pre>
-
+      <!-- PENDAHULUAN -->
+      <section id="pendahuluan">
+        <h2>🎯 Pendahuluan</h2>
+        <p>
+          Dokumentasi ini dibuat berdasarkan pengalaman aktual dalam melakukan
+          setup environment COBOL menggunakan GnuCOBOL compiler dan Visual
+          Studio Code sebagai text editor. Proses instalasi dan konfigurasi
+          dilakukan pada sistem operasi Windows dengan menggunakan MSYS2 MINGW64
+          sebagai environment untuk development.
+        </p>
+        <div class="info-box">
+          <strong>📌 Tujuan Dokumentasi:</strong>
           <p>
-            Jika diminta tutup jendela, tutup dan buka kembali MSYS2 MinGW
-            64-bit
+            Mendokumentasikan proses lengkap setup environment COBOL, mengatasi
+            berbagai error yang muncul, dan mengintegrasikan tools development
+            untuk meningkatkan produktivitas coding.
           </p>
+        </div>
+      </section>
 
-          <pre><code>pacman -Su</code></pre>
-        </article>
+      <!-- SOFTWARE -->
+      <section id="software">
+        <h2>🔧 Software yang Digunakan</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Software</th>
+              <th>Versi</th>
+              <th>Fungsi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Visual Studio Code</td>
+              <td>Latest</td>
+              <td>Text editor dan IDE development</td>
+            </tr>
+            <tr>
+              <td>Extension bitlang.cobol</td>
+              <td>Latest</td>
+              <td>Syntax highlighting & IntelliSense COBOL</td>
+            </tr>
+            <tr>
+              <td>GnuCOBOL</td>
+              <td>3.x</td>
+              <td>Compiler COBOL untuk Windows</td>
+            </tr>
+            <tr>
+              <td>MSYS2 MINGW64</td>
+              <td>Latest</td>
+              <td>Environment Unix-like untuk Windows</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-        <article class="card" id="langkah2">
-          <h2>🔧 Langkah 2: Instalasi Compiler COBOL (GnuCOBOL)</h2>
-          <ol>
-            <li><strong>Install GnuCOBOL:</strong></li>
-          </ol>
+      <!-- INSTALASI -->
+      <section id="instalasi">
+        <h2>📦 Proses Instalasi</h2>
 
-          <pre><code>pacman -S mingw-w64-x86_64-gnucobol</code></pre>
+        <h3>1. Instalasi Visual Studio Code</h3>
+        <p>
+          Download Visual Studio Code dari website resmi (code.visualstudio.com)
+          dan install dengan pengaturan default. Pastikan opsi "Add to PATH"
+          tercentang saat instalasi.
+        </p>
 
+        <h3>2. Instalasi Extension COBOL</h3>
+        <p>
+          Buka VS Code, masuk ke Extensions (Ctrl+Shift+X), cari "bitlang.cobol"
+          dan install. Extension ini menyediakan syntax highlighting dan code
+          completion untuk bahasa COBOL.
+        </p>
+
+        <h3>3. Instalasi MSYS2 & GnuCOBOL</h3>
+        <p>
+          Download MSYS2 dari website resmi dan install. Setelah itu, buka MSYS2
+          MINGW64 terminal dan jalankan perintah instalasi.
+        </p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">BASH / SHELL</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <pre><code>pacman -Syu
+pacman -S mingw-w64-x86_64-gnucobol
+cobc --version</code></pre>
+        </div>
+
+        <div class="success-box">
+          <strong>✅ Verifikasi Sukses:</strong> Jika command berhasil
+          menampilkan versi GnuCOBOL, instalasi kompiler sudah berhasil.
+        </div>
+      </section>
+
+      <!-- KONFIGURASI -->
+      <section id="konfigurasi">
+        <h2>⚙️ Konfigurasi VS Code</h2>
+
+        <h3>File tasks.json</h3>
+        <p>
+          Buat file ini di folder <code>.vscode/tasks.json</code> untuk
+          mengkonfigurasi proses kompilasi:
+        </p>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image7.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <!-- <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JSON</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <pre><code>{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build HELLO",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o /c/COBOL_project/hello.exe /c/COBOL_project/hello.cob"
+      ]
+    },
+    {
+      "label": "Build TRANSAKSI",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -F -x -o /c/COBOL_project/transaksi.exe /c/COBOL_project/transaksi.cob"
+      ]
+    },
+    {
+      "label": "Build BIODATA",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o /c/COBOL_project/biodata.exe /c/COBOL_project/biodata.cob"
+      ]
+    }
+  ]
+}
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build HELLO",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o /c/COBOL_project/hello.exe /c/COBOL_project/hello.cob"
+      ]
+    },
+    {
+      "label": "Build TRANSAKSI",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -F -x -o /c/COBOL_project/transaksi.exe /c/COBOL_project/transaksi.cob"
+      ]
+    },
+    {
+      "label": "Build BIODATA",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o /c/COBOL_project/biodata.exe /c/COBOL_project/biodata.cob"
+      ]
+    }
+  ]
+}
+</code></pre>
+        </div> -->
+
+        <h3>File launch.json</h3>
+        <p>
+          Buat file ini di folder <code>.vscode/launch.json</code> untuk
+          mengkonfigurasi debug dan run:
+        </p>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image8.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <!-- <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JSON</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <pre><code>{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run HELLO",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "C:/msys64/usr/bin/bash.exe",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && cd /c/COBOL_project && ./hello.exe"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build HELLO"
+    },
+
+    {
+      "name": "Run TRANSAKSI",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "C:/msys64/usr/bin/bash.exe",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && cd /c/COBOL_project && ./transaksi.exe"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build TRANSAKSI"
+    },
+
+    {
+      "name": "Run BIODATA",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "C:/msys64/usr/bin/bash.exe",
+      "args": [
+        "-lc",
+        "export PATH=/mingw64/bin:$PATH && cd /c/COBOL_project && ./biodata.exe"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build BIODATA"
+    }
+  ]
+}
+</code></pre>
+        </div> -->
+      </section>
+
+      <!-- PROGRAM COBOL -->
+      <section id="program">
+        <h2>💻 Program COBOL</h2>
+
+        <div class="info-box">
+          <strong>📌 Cara Menjalankan Program:</strong>
           <p>
-            Ketik
+            1. Tekan <code>Ctrl + Shift + D</code> untuk membuka "Run and
+            Debug"<br />
+            2. Pilih file yang ingin dijalankan dari dropdown<br />
+            3. Tekan <code>Fn + F5</code> untuk compile dan run<br />
+            4. Output akan muncul di terminal
+          </p>
+        </div>
+
+        <h3>Program 1: Hello World (hello.cob)</h3>
+        <p>Program dasar untuk menampilkan teks di layar.</p>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image1.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <p><strong>Output Program:</strong></p>
+        <div class="output-box">
+          ===== HELLO WORLD ===== 
+          Project: COBOL_project
+          Code Berhasil Jalan Nih Bang
+        </div>
+
+        <h3>Program 2: Kalkulasi Transaksi (transaksi.cob)</h3>
+        <p>
+          Program untuk menghitung total transaksi dengan format ribuan dan
+          diskon.
+        </p>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image2.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <p><strong>Output Program (Contoh):</strong></p>
+        <div class="image-placeholder">
+          <img
+            src="images/image5.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <div class="output-box">
+          PROGRAM KALKULASI TRANSAKSI SEDERHANA 
+          Masukkan nama barang: 
+          Mifi Advan TIX 
+          Masukkan harga barang (tanpa titik/koma): 
+          370000 
+          Masukkan jumlah barang: 
+          1
+          -----------------------------
+          Nama Barang  : Mifi Advan TIX 
+          Harga Satuan :     370,000.00
+          Jumlah       :           1.00 
+          Total Harga  :     370,000.00 
+          Diskon 10%   :      37,000.00 
+          Total Akhir  :     333,000.00
+          -----------------------------
+        </div>
+
+        <h3>Program 3: Biodata Pribadi (biodata.cob)</h3>
+        <p>
+          Program untuk input dan menampilkan biodata dengan format tanggal dan
+          perhitungan usia.
+        </p>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image3.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <p><strong>Output Program (Contoh):</strong></p>
+        <div class="image-placeholder">
+          <img
+            src="images/image6.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <div class="output-box">
+          === INPUT BIODATA === 
+          Nama Lengkap: Trex Tempat Lahir: Bumi bagian
+          barat Tanggal Lahir (DDMMYYYY): 
+          02052005 
+          Jenis Kelamin (L/P): 
+          L 
+          Tinggi Badan (cm): 
+          620cm 
+          
+          === BIODATA ANDA === 
+          Nama : Trex 
+          TTL : Bumi bagian barat, 01-01-0001 
+          Jenis Kelamin: L 
+          Tinggi Badan : 620 cm
+        </div>
+      </section>
+
+      <!-- VS CODE INTEGRATION -->
+      <section id="vscode-run">
+        <h2>🖥️ Cara Menjalankan Program di VS Code</h2>
+
+        <div class="image-placeholder">
+          <img
+            src="images/image4.png"
+            alt="Screenshot Code hello.cob"
+            style="max-width: 100%; border-radius: 8px"
+          />
+        </div>
+
+        <h3>Langkah-Langkah Eksekusi</h3>
+
+        <div class="info-box">
+          <strong>Step 1: Buka Run and Debug</strong>
+          <p>
+            Tekan <code>Ctrl + Shift + D</code> untuk membuka panel "Run and
+            Debug" di sebelah kiri editor.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <strong>Step 2: Pilih Program</strong>
+          <p>
+            Klik dropdown di sebelah icon segitiga (play button) dan pilih
+            program yang ingin dijalankan (Run HELLO, Run TRANSAKSI, atau Run
+            BIODAT).
+          </p>
+        </div>
+
+        <div class="info-box">
+          <strong>Step 3: Jalankan Program</strong>
+          <p>
+            Tekan <code>Fn + F5</code> untuk mengkompilasi dan menjalankan
+            program. Output akan muncul di integrated terminal.
+          </p>
+        </div>
+
+        <div class="success-box">
+          <strong>✅ Tips & Trik:</strong>
+          <p>
+            • Pastikan file sudah tersimpan sebelum menjalankan<br />
+            • Jika ada error, lihat pesan error di terminal<br />
+            • Reload VS Code jika dropdown tidak muncul<br />
+            • Pastikan folder .vscode ada di project root
+          </p>
+        </div>
+      </section>
+
+      <!-- ERROR & SOLUSI -->
+      <section id="error-solusi">
+        <h2>🐛 Error & Solusi</h2>
+
+        <h3>Error 1: Compiler Tidak Dikenali</h3>
+        <div class="warning-box">
+          <strong>❌ Error:</strong>
+          <p><code>cobc: command not found</code></p>
+        </div>
+        <p>
+          <strong>Penyebab:</strong> Environment PATH tidak terkonfigurasi
+          dengan baik.
+        </p>
+        <p>
+          <strong>Solusi:</strong> Set PATH untuk GnuCOBOL di MSYS2 MINGW64
+          terminal.
+        </p>
+
+        <h3>Error 2: Konfigurasi File Tidak Ditemukan</h3>
+        <div class="warning-box">
+          <strong>❌ Error:</strong>
+          <p>
             <code
-              style="
-                background: rgba(99, 102, 241, 0.2);
-                padding: 0.25rem 0.5rem;
-                border-radius: 4px;
-              "
-              >Y</code
+              >C:\gnuCobol\config\default.conf: No such file or directory</code
             >
-            ketika diminta konfirmasi
           </p>
+        </div>
+        <p>
+          <strong>Penyebab:</strong> Environment variable COB_CONFIG_DIR tidak
+          tersetting.
+        </p>
+        <p>
+          <strong>Solusi:</strong> Set environment variable COB_CONFIG_DIR ke
+          lokasi config GnuCOBOL.
+        </p>
 
-          <ol start="2">
-            <li><strong>Verifikasi instalasi:</strong></li>
-          </ol>
+        <h3>Error 3: Integrasi VS Code Gagal</h3>
+        <div class="warning-box">
+          <strong>❌ Error:</strong>
+          <p>F5 tidak bekerja atau dropdown tidak muncul</p>
+        </div>
+        <p>
+          <strong>Penyebab:</strong> File konfigurasi tidak tepat atau VS Code
+          perlu di-reload.
+        </p>
+        <p>
+          <strong>Solusi:</strong> Pastikan tasks.json dan launch.json sudah
+          benar, lalu reload VS Code.
+        </p>
+      </section>
 
-          <pre><code>cobc -v</code></pre>
+      <!-- KESIMPULAN -->
+      <section id="kesimpulan">
+        <h2>🎯 Kesimpulan</h2>
 
+        <div class="success-box">
+          <strong>1. Environment COBOL Setup</strong>
           <p>
-            Seharusnya menampilkan versi GnuCOBOL (contoh:
-            <code
-              style="
-                background: rgba(99, 102, 241, 0.2);
-                padding: 0.25rem 0.5rem;
-                border-radius: 4px;
-              "
-              >cobc (GnuCOBOL) 3.2.0</code
-            >)
+            Lingkungan pengembangan COBOL dengan GnuCOBOL compiler berhasil
+            dikonfigurasi sepenuhnya pada sistem Windows dengan PATH dan
+            environment variables yang teratur.
           </p>
-        </article>
+        </div>
 
-        <article class="card" id="langkah3">
-          <h2>🔧 Langkah 3: Konfigurasi Environment COBOL</h2>
+        <div class="success-box">
+          <strong>2. Development Environment Integration</strong>
           <p>
-            <strong>Atasi error konfigurasi</strong> dengan set environment
-            variable:
+            Visual Studio Code berhasil diintegrasikan sebagai development
+            environment yang efektif dengan syntax highlighting, automation
+            tools, dan debug capabilities.
           </p>
+        </div>
 
-          <pre><code>export PATH=/mingw64/bin:$PATH
-COB_CONFIG_DIR=/mingw64/share/gnucobol/config</code></pre>
-        </article>
+        <div class="success-box">
+          <strong>3. Program Development & Execution</strong>
+          <p>
+            Semua program COBOL (Hello World, Kalkulasi Transaksi, dan Biodata)
+            dapat dicompile dan dijalankan dengan sukses, menghasilkan output
+            sesuai dengan ekspektasi.
+          </p>
+        </div>
 
-        <article class="card" id="langkah4">
-          <h2>🔧 Langkah 4: Uji Coba Program COBOL</h2>
-          <ol>
-            <li><strong>Buat file hello.cob:</strong></li>
-          </ol>
-
-          <pre><code>nano hello.cob</code></pre>
-
-          <ol start="2">
-            <li><strong>Isi dengan kode:</strong></li>
-          </ol>
-
-          <pre><code><span class="keyword">IDENTIFICATION DIVISION</span>.
-<span class="keyword">PROGRAM-ID</span>. HELLO.
-<span class="keyword">PROCEDURE DIVISION</span>.
-    <span class="keyword">DISPLAY</span> <span class="string">"HELLO, WORLD!"</span>.
-    <span class="keyword">STOP RUN</span>.</code></pre>
-
-          <ol start="3">
-            <li><strong>Compile dan jalankan:</strong></li>
-          </ol>
-
-          <pre><code>COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o hello.exe hello.cob
-./hello.exe</code></pre>
-        </article>
-
-        <article class="card" id="langkah5">
-          <h2>🔧 Langkah 5: Integrasi dengan VS Code</h2>
-
-          <h3>A. Install Extension</h3>
-          <ul>
-            <li>
-              Install extension <strong>COBOL</strong> (bitlang.cobol) di VS
-              Code
-            </li>
-            <li>
-              Install extension <strong>C/C++</strong> (Microsoft) untuk
-              debugger
-            </li>
-          </ul>
-
-          <h3>B. Buat Konfigurasi Build (.vscode/tasks.json)</h3>
-
-          <pre><code>{
-  <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,
-  <span class="string">"tasks"</span>: [
-    {
-      <span class="string">"label"</span>: <span class="string">"Build COBOL"</span>,
-      <span class="string">"type"</span>: <span class="string">"shell"</span>,
-      <span class="string">"command"</span>: <span class="string">"bash"</span>,
-      <span class="string">"args"</span>: [
-        <span class="string">"-lc"</span>,
-        <span class="string">"export PATH=/mingw64/bin:$PATH && COB_CONFIG_DIR=/mingw64/share/gnucobol/config cobc -x -o ${fileDirname}/${fileBasenameNoExtension}.exe ${file}"</span>
-      ],
-      <span class="string">"group"</span>: {
-        <span class="string">"kind"</span>: <span class="string">"build"</span>,
-        <span class="string">"isDefault"</span>: <span class="keyword">true</span>
-      },
-      <span class="string">"problemMatcher"</span>: []
-    }
-  ]
-}</code></pre>
-
-          <h3>C. Buat Konfigurasi Debug (.vscode/launch.json)</h3>
-
-          <pre><code>{
-  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,
-  <span class="string">"configurations"</span>: [
-    {
-      <span class="string">"name"</span>: <span class="string">"Run COBOL via MSYS2 MINGW64"</span>,
-      <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,
-      <span class="string">"request"</span>: <span class="string">"launch"</span>,
-      <span class="string">"program"</span>: <span class="string">"C:/msys64/usr/bin/bash.exe"</span>,
-      <span class="string">"args"</span>: [
-        <span class="string">"-lc"</span>,
-        <span class="string">"export PATH=/mingw64/bin:$PATH && cd '${fileDirname}' && ./${fileBasenameNoExtension}.exe"</span>
-      ],
-      <span class="string">"stopAtEntry"</span>: <span class="keyword">false</span>,
-      <span class="string">"cwd"</span>: <span class="string">"${workspaceFolder}"</span>,
-      <span class="string">"console"</span>: <span class="string">"integratedTerminal"</span>,
-      <span class="string">"preLaunchTask"</span>: <span class="string">"Build COBOL"</span>
-    }
-  ]
-}</code></pre>
-
-          <h3>D. Setting Terminal Default</h3>
-          <ul>
-            <li>
-              <code
-                style="
-                  background: rgba(99, 102, 241, 0.2);
-                  padding: 0.25rem 0.5rem;
-                  border-radius: 4px;
-                "
-                >Ctrl+Shift+P</code
-              >
-              → "Terminal: Select Default Profile"
-            </li>
-            <li>Pilih <strong>MSYS2 MinGW 64-bit</strong></li>
-          </ul>
-        </article>
-
-        <article class="card" id="langkah6">
-          <h2>🔧 Langkah 6: Program COBOL Contoh yang Siap Pakai</h2>
-
-          <div class="examples-grid">
-            <div class="example-card" onclick="showExample('hello')">
-              <h4>📝 Program Hello World</h4>
-              <p>Program sederhana untuk menampilkan pesan</p>
-            </div>
-            <div class="example-card" onclick="showExample('transaksi')">
-              <h4>💰 Program Transaksi</h4>
-              <p>Kalkulasi dengan format ribuan Indonesia</p>
-            </div>
-            <div class="example-card" onclick="showExample('biodata')">
-              <h4>👤 Program Biodata</h4>
-              <p>Input dan format tanggal DD-MM-YYYY</p>
-            </div>
-          </div>
-
-          <div id="example-content">
-            <h3>1. hello.cob (Program Sederhana)</h3>
-
-            <pre><code>       <span class="keyword">IDENTIFICATION DIVISION</span>.
-       <span class="keyword">PROGRAM-ID</span>. HELLO.
-       <span class="keyword">PROCEDURE DIVISION</span>.
-           <span class="keyword">DISPLAY</span> <span class="string">"HELLO, WORLD!"</span>.
-           <span class="keyword">DISPLAY</span> <span class="string">"Project: COBOL_project"</span>.
-           <span class="keyword">DISPLAY</span> <span class="string">"Code berhasil jalan"</span>.
-           <span class="keyword">STOP RUN</span>.</code></pre>
-
-            <h3>2. transaksi.cob (Program Kalkulasi)</h3>
-
-            <pre><code>       <span class="keyword">IDENTIFICATION DIVISION</span>.
-       <span class="keyword">PROGRAM-ID</span>. TRANSAKSI.
-       <span class="keyword">AUTHOR</span>. AMIN.
-
-       <span class="keyword">ENVIRONMENT DIVISION</span>.
-       <span class="keyword">CONFIGURATION SECTION</span>.
-       <span class="keyword">SPECIAL-NAMES</span>.
-           <span class="keyword">DECIMAL-POINT IS COMMA</span>.
-
-       <span class="keyword">DATA DIVISION</span>.
-       <span class="keyword">WORKING-STORAGE SECTION</span>.
-
-      <span class="comment">* Input numerik</span>
-       <span class="keyword">01</span> WS-NUM1 PIC 9(5)V99.
-       <span class="keyword">01</span> WS-NUM2 PIC 9(5)V99.
-       <span class="keyword">01</span> WS-HASIL PIC 9(6)V99.
-       <span class="keyword">01</span> WS-TAMPIL PIC Z(5)9,99.
-
-       <span class="keyword">PROCEDURE DIVISION</span>.
-       MAIN-LOGIC.
-           MOVE 12345,67 TO WS-NUM1.
-           MOVE 9876,54 TO WS-NUM2.
-           COMPUTE WS-HASIL = WS-NUM1 + WS-NUM2.
-           MOVE WS-HASIL TO WS-TAMPIL.
-           DISPLAY "HASIL PENJUMLAHAN: " WS-TAMPIL.
-           STOP RUN.</code></pre>
-
-            <h3>3. biodata.cob (Program Input Data)</h3>
-
-            <pre><code>       <span class="keyword">IDENTIFICATION DIVISION</span>.
-       <span class="keyword">PROGRAM-ID</span>. BIODATA.
-       <span class="keyword">AUTHOR</span>. AMIN.
-
-       <span class="keyword">ENVIRONMENT DIVISION</span>.
-       <span class="keyword">INPUT-OUTPUT SECTION</span>.
-       <span class="keyword">DATA DIVISION</span>.
-       <span class="keyword">WORKING-STORAGE SECTION</span>.
-       <span class="keyword">01</span> WS-NAMA PIC X(20).
-       <span class="keyword">01</span> WS-TGL-LAHIR.
-          <span class="keyword">05</span> WS-HARI PIC 99.
-          <span class="keyword">05</span> WS-BULAN PIC 99.
-          <span class="keyword">05</span> WS-TAHUN PIC 9999.
-
-       <span class="keyword">PROCEDURE DIVISION</span>.
-       MAIN-LOGIC.
-           MOVE "AMIN" TO WS-NAMA.
-           MOVE 15 TO WS-HARI.
-           MOVE 08 TO WS-BULAN.
-           MOVE 1990 TO WS-TAHUN.
-           DISPLAY "NAMA: " WS-NAMA.
-           DISPLAY "TANGGAL LAHIR: " 
-                   WS-HARI "-" WS-BULAN "-" WS-TAHUN.
-           STOP RUN.</code></pre>
-          </div>
-        </article>
-
-        <article class="card" id="menjalankan">
-          <h2>🚀 Cara Menjalankan Program COBOL</h2>
-
-          <div class="info-box info-box-success">
-            <div class="info-icon">✅</div>
-            <div>
-              <h3>Langkah-langkah Menjalankan Program</h3>
-              <ol>
-                <li>Buka terminal MSYS2 MinGW 64-bit</li>
-                <li>Masuk ke direktori tempat file COBOL disimpan</li>
-                <li>
-                  Compile program dengan perintah:
-                  <code>cobc -x -o namafile.exe namafile.cob</code>
-                </li>
-                <li>Jalankan program dengan: <code>./namafile.exe</code></li>
-              </ol>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" id="troubleshooting">
-          <h2>🐛 Troubleshooting & Solusi Umum</h2>
-
-          <div class="info-box info-box-warning">
-            <div class="info-icon">⚠️</div>
-            <div>
-              <h3>Masalah Umum dan Solusinya</h3>
-              <ul>
-                <li>
-                  <strong>Error "cobc: command not found"</strong> - Pastikan
-                  GnuCOBOL terinstall dengan benar
-                </li>
-                <li>
-                  <strong>Error konfigurasi</strong> - Set environment variable
-                  COB_CONFIG_DIR
-                </li>
-                <li>
-                  <strong>Program tidak bisa dijalankan</strong> - Periksa
-                  sintaks dan pastikan compile berhasil
-                </li>
-                <li>
-                  <strong>VS Code tidak mengenali terminal</strong> - Set
-                  default terminal ke MSYS2 MinGW 64-bit
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
+        <div class="success-box">
+          <strong>4. Workflow Optimization</strong>
+          <p>
+            Dengan automation tools yang proper (tasks.json dan launch.json),
+            proses development menjadi lebih efisien dengan Ctrl+Shift+D dan
+            Fn+F5.
+          </p>
+        </div>
+      </section>
     </main>
 
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to Top">
+      ↑
+    </button>
+
     <footer>
-      <p>&copy; 2023 COBOL Tutorial - Panduan Lengkap Pemrograman COBOL</p>
+      <p><strong>Laporan Dokumentasi COBOL</strong></p>
+      <p>Mata Kuliah: Algoritma & Pemrograman 3</p>
+      <p>Environment: Windows 10/11 | GnuCOBOL | VS Code</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8">
+        © 2024 - Dokumentasi Teknis COBOL Development
+      </p>
     </footer>
-
-    <div class="back-to-top" id="backToTop">↑</div>
-
-    <div class="sound-animation" id="soundToggle">🔊</div>
 
     <script src="script.js"></script>
   </body>
 </html>
-
